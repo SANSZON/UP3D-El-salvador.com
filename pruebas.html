@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UP3D | Productos - Escáneres Dentales Digitales y Soluciones CAD/CAM</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../imagen/Productos/Logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../imagen/Productos/Logo.png">
+    <link rel="shortcut icon" href="../imagen/Productos/Logo.png">
+    <link rel="apple-touch-icon" href="../imagen/Productos/Logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2d5f8d;
+            --accent-color: #4a90e2;
+            --accent-secondary: #00d4aa;
+            --dark-navy: #0f1c2e;
+            --dark-bg: #1a1f2e;
+            --light-bg: #f7f9fc;
+            --soft-gray: #e8ecf1;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #1a365d 0%, #2d5f8d 50%, #4a90e2 100%);
+            --gradient-2: linear-gradient(135deg, #4a90e2 0%, #00d4aa 100%);
+            --gradient-3: linear-gradient(135deg, #0f1c2e 0%, #1a365d 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            box-shadow: 0 2px 24px rgba(26, 54, 93, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 32px rgba(26, 54, 93, 0.12);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.3rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 12px rgba(74, 144, 226, 0.3));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-2);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gradient-2);
+            color: var(--white);
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 16px rgba(74, 144, 226, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(74, 144, 226, 0.35);
+        }
+
+        /* Hero Banner for Products */
+        .products-hero {
+            margin-top: 80px;
+            min-height: 40vh;
+            background: var(--gradient-1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem;
+        }
+
+        .products-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(74, 144, 226, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 212, 170, 0.15) 0%, transparent 50%);
+        }
+
+        .products-hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .products-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .products-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1400px;
+            margin: 2rem auto 0;
+            padding: 0 2rem;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Products Catalog */
+        .products-catalog {
+            padding: 5rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .products-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--gradient-2);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--soft-gray);
+            background: var(--white);
+            border-radius: 10px;
+            color: var(--text-medium);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--gradient-2);
+            border-color: transparent;
+            color: var(--white);
+            box-shadow: 0 4px 16px rgba(74, 144, 226, 0.2);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(26, 54, 93, 0.08);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(74, 144, 226, 0.1);
+            animation: fadeIn 0.6s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 60px rgba(26, 54, 93, 0.15);
+        }
+
+        .product-image {
+            height: 250px;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.08);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-secondary);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-category {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .product-description {
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .product-specs {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-specs li {
+            padding: 0.4rem 0;
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .product-specs li::before {
+            content: '✓';
+            color: var(--accent-secondary);
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .product-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-price span {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-details {
+            flex: 1;
+            background: var(--gradient-2);
+            color: var(--white);
+            padding: 0.9rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-details:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(74, 144, 226, 0.35);
+        }
+
+        .btn-quote {
+            flex: 1;
+            background: transparent;
+            color: var(--accent-color);
+            padding: 0.9rem 1.5rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-quote:hover {
+            background: var(--accent-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Product Details Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: var(--white);
+            width: 90%;
+            max-width: 1000px;
+            margin: 2rem auto;
+            border-radius: 24px;
+            overflow: hidden;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        .modal-header {
+            padding: 2rem;
+            background: var(--gradient-1);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .close-modal {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2.5rem;
+        }
+
+        /* Comparison Table */
+        .comparison {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 3rem;
+            box-shadow: 0 4px 24px rgba(26, 54, 93, 0.08);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--soft-gray);
+        }
+
+        .comparison-table th {
+            background: var(--gradient-1);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table tr:hover {
+            background: rgba(74, 144, 226, 0.05);
+        }
+
+        .comparison-table .feature {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .comparison-table .check {
+            color: var(--accent-secondary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .products-cta {
+            padding: 6rem 2rem;
+            background: var(--gradient-3);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .products-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .products-cta p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-navy);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 5rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 2rem;
+        }
+
+        .footer-section p {
+            opacity: 0.8;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-secondary);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 212, 170, 0.3);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .products-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .category-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="../index.html" class="logo">
+                <img src="../imagen/Productos/Logo.png" alt="UP3D Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#comparacion">Comparación</a></li>
+                <li><a href="../index.html#tecnologia">Tecnología</a></li>
+                <li><a href="../index.html#contacto">Contacto</a></li>
+                <li><a href="../index.html#contacto" class="cta-button">Solicitar Demo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="products-hero">
+        <div class="products-hero-content">
+            <h1>Nuestra Gama de Productos</h1>
+            <p>Descubre nuestra línea completa de escáneres dentales 3D de última generación, diseñados para satisfacer las necesidades de cada profesional dental.</p>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="../index.html">Inicio</a> ›</li>
+            <li>Productos</li>
+        </ul>
+    </div>
+
+    <!-- Products Catalog -->
+    <section class="products-catalog" id="productos">
+        <div class="products-container">
+            <div class="section-header">
+                <span class="section-tag">Catálogo Completo</span>
+                <h2 class="section-title">Escáneres Dentales 3D</h2>
+                <p class="section-subtitle">Selecciona el escáner ideal para tu clínica o laboratorio dental</p>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="category-filter">
+                <button class="filter-btn active" data-filter="all">Todos los Productos</button>
+                <button class="filter-btn" data-filter="sobremesa">Escáneres de Sobremesa</button>
+                <button class="filter-btn" data-filter="intraoral">Escáneres Intraorales</button>
+                <button class="filter-btn" data-filter="industrial">Escáneres Industriales</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid">
+                <!-- Escáner UP400 -->
+                <div class="product-card" data-category="sobremesa">
+                    <div class="product-image">
+                        <img src="../imagen/Productos/Escaneres/Escaner_up400.png" alt="Escáner UP400">
+                        <div class="product-badge">Compacto</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Escáner de Sobremesa</div>
+                        <h3 class="product-title">UP400</h3>
+                        <p class="product-description">Escáner de sobremesa compacto ideal para clínicas pequeñas y medianas. Excelente balance entre precio y rendimiento.</p>
+                        <ul class="product-specs">
+                            <li>Precisión: 15μm</li>
+                            <li>Velocidad: 45 segundos</li>
+                            <li>Área de escaneo: 60 x 60mm</li>
+                            <li>Compatibilidad: STL, PLY, OBJ</li>
+                        </ul>
+                        <div class="product-price">$12,499 <span>+IVA</span></div>
+                        <div class="product-actions">
+                            <a href="#" class="btn-details" data-product="up400">Ver Detalles</a>
+                            <a href="../index.html#contacto" class="btn-quote">Cotizar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Escáner UP560 -->
+                <div class="product-card" data-category="sobremesa">
+                    <div class="product-image">
+                        <img src="../imagen/Productos/Escaneres/Escaner_up560.png" alt="Escáner UP560">
+                        <div class="product-badge">Más Popular</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Escáner de Sobremesa</div>
+                        <h3 class="product-title">UP560</h3>
+                        <p class="product-description">Escáner versátil que combina velocidad, precisión y área de escaneo ampliada para máxima productividad.</p>
+                        <ul class="product-specs">
+                            <li>Precisión: 10μm</li>
+                            <li>Velocidad: 30 segundos</li>
+                            <li>Área de escaneo: 80 x 80mm</li>
+                            <li>Software avanzado incluido</li>
+                        </ul>
+                        <div class="product-price">$15,999 <span>+IVA</span></div>
+                        <div class="product-actions">
+                            <a href="#" class="btn-details" data-product="up560">Ver Detalles</a>
+                            <a href="../index.html#contacto" class="btn-quote">Cotizar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Escáner UP560 Optical -->
+                <div class="product-card" data-category="sobremesa">
+                    <div class="product-image">
+                        <img src="../imagen/Productos/Escaneres/Escaner_up560optical.png" alt="Escáner UP560 Optical">
+                        <div class="product-badge">Premium</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Escáner Óptico</div>
+                        <h3 class="product-title">UP560 Optical</h3>
+                        <p class="product-description">Versión óptica con tecnología de luz estructurada. Captura de color real y detalles extremos.</p>
+                        <ul class="product-specs">
+                            <li>Precisión: 5μm</li>
+                            <li>Velocidad: 25 segundos</li>
+                            <li>Captura color RGB</li>
+                            <li>Resolución: 24MP</li>
+                        </ul>
+                        <div class="product-price">$19,999 <span>+IVA</span></div>
+                        <div class="product-actions">
+                            <a href="#" class="btn-details" data-product="up560optical">Ver Detalles</a>
+                            <a href="../index.html#contacto" class="btn-quote">Cotizar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Escáner UP1000 -->
+                <div class="product-card" data-category="industrial">
+                    <div class="product-image">
+                        <img src="../imagen/Productos/Escaneres/Escaner_up1000.png" alt="Escáner UP1000">
+                        <div class="product-badge">Alto Rendimiento</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Escáner Industrial</div>
+                        <h3 class="product-title">UP1000</h3>
+                        <p class="product-description">Diseñado para laboratorios de producción masiva. Velocidad extrema sin comprometer precisión.</p>
+                        <ul class="product-specs">
+                            <li>Precisión: 8μm</li>
+                            <li>Velocidad: 15 segundos</li>
+                            <li>Área: 120 x 120mm</li>
+                            <li>Bandejas múltiples</li>
+                        </ul>
+                        <div class="product-price">$24,999 <span>+IVA</span></div>
+                        <div class="product-actions">
+                            <a href="#" class="btn-details" data-product="up1000">Ver Detalles</a>
+                            <a href="../index.html#contacto" class="btn-quote">Cotizar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Escáner UP610 -->
+                <div class="product-card" data-category="sobremesa">
+                    <div class="product-image">
+                        <img src="../imagen/Productos/Escaneres/Escaner_up610.png" alt="Escáner UP610">
+                        <div class="product-badge">Nuevo</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Escáner Profesional</div>
+                        <h3 class="product-title">UP610</h3>
+                        <p class="product-description">Último lanzamiento con IA integrada. Tecnología de escaneo 3D con inteligencia artificial.</p>
+                        <ul class="product-specs">
+                            <li>Precisión: 7μm</li>
+                            <li>Velocidad: 20 segundos</li>
+                            <li>AI integrada</li>
+                            <li>Conectividad cloud</li>
+                        </ul>
+                        <div class="product-price">$18,499 <span>+IVA</span></div>
+                        <div class="product-actions">
+                            <a href="#" class="btn-details" data-product="up610">Ver Detalles</a>
+                            <a href="../index.html#contacto" class="btn-quote">Cotizar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Escáner Intraoral UP3D-i7 -->
+                <div class="product-card" data-category="intraoral">
+                    <div class="product-image">
+                        <img src="../imagen/Productos/Escaneres/intraoral.png" alt="Escáner Intraoral UP3D-i7">
+                        <div class="product-badge">Revolucionario</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Escáner Intraoral</div>
+                        <h3 class="product-title">UP3D-i7</h3>
+                        <p class="product-description">Escáner intraoral de última generación para captura directa en boca. Sin polvo, máxima comodidad.</p>
+                        <ul class="product-specs">
+                            <li>Precisión: 15μm</li>
+                            <li>Peso: 198g</li>
+                            <li>Autoclave: Sí</li>
+                            <li>Wireless: Bluetooth 5.0</li>
+                        </ul>
+                        <div class="product-price">$28,999 <span>+IVA</span></div>
+                        <div class="product-actions">
+                            <a href="#" class="btn-details" data-product="i7">Ver Detalles</a>
+                            <a href="../index.html#contacto" class="btn-quote">Cotizar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fresadora M5 Elite -->
+                <div class="product-card" data-category="industrial">
+                    <div class="product-image">
+                        <img src="../imagen/Productos/Fresadoras/fresadora.png" alt="Fresadora M5 Elite">
+                        <div class="product-badge">5 Ejes</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Fresadora CAD/CAM</div>
+                        <h3 class="product-title">M5 Elite</h3>
+                        <p class="product-description">Fresadora de 5 ejes para producción de alta precisión. Compatible con múltiples materiales.</p>
+                        <ul class="product-specs">
+                            <li>5 ejes simultáneos</li>
+                            <li>Cambio automático</li>
+                            <li>Materiales: 20+</li>
+                            <li>Producción 24/7</li>
+                        </ul>
+                        <div class="product-price">$32,999 <span>+IVA</span></div>
+                        <div class="product-actions">
+                            <a href="#" class="btn-details" data-product="m5">Ver Detalles</a>
+                            <a href="../index.html#contacto" class="btn-quote">Cotizar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Software UP3D CAD -->
+                <div class="product-card" data-category="sobremesa">
+                    <div class="product-image">
+                        <img src="../imagen/Productos/Software/software.png" alt="Software UP3D CAD">
+                        <div class="product-badge">IA Integrada</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Software CAD</div>
+                        <h3 class="product-title">UP3D CAD Pro</h3>
+                        <p class="product-description">Software de diseño dental asistido por IA. Bibliotecas anatómicas completas.</p>
+                        <ul class="product-specs">
+                            <li>AI integrada</li>
+                            <li>Biblioteca: 500+ formas</li>
+                            <li>Cloud sync</li>
+                            <li>Actualizaciones OTA</li>
+                        </ul>
+                        <div class="product-price">$4,999 <span>+IVA/año</span></div>
+                        <div class="product-actions">
+                            <a href="#" class="btn-details" data-product="cad">Ver Detalles</a>
+                            <a href="../index.html#contacto" class="btn-quote">Cotizar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison" id="comparacion">
+        <div class="products-container">
+            <div class="section-header">
+                <span class="section-tag">Comparativa</span>
+                <h2 class="section-title">Comparativa de Modelos</h2>
+                <p class="section-subtitle">Encuentra el escáner perfecto comparando características clave</p>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>UP400</th>
+                        <th>UP560</th>
+                        <th>UP560 Optical</th>
+                        <th>UP1000</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature">Precisión (μm)</td>
+                        <td>15</td>
+                        <td>10</td>
+                        <td>5</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Velocidad de Escaneo</td>
+                        <td>45 segundos</td>
+                        <td>30 segundos</td>
+                        <td>25 segundos</td>
+                        <td>15 segundos</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Área de Escaneo</td>
+                        <td>60 x 60mm</td>
+                        <td>80 x 80mm</td>
+                        <td>80 x 80mm</td>
+                        <td>120 x 120mm</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Resolución</td>
+                        <td>1080p</td>
+                        <td>2K</td>
+                        <td>4K RGB</td>
+                        <td>2K</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Captura de Color</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td class="check">✓</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Software Incluido</td>
+                        <td>Básico</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Garantía</td>
+                        <td>1 año</td>
+                        <td>2 años</td>
+                        <td>3 años</td>
+                        <td>2 años</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Precio Inicial</td>
+                        <td>$12,499</td>
+                        <td>$15,999</td>
+                        <td>$19,999</td>
+                        <td>$24,999</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="products-cta">
+        <h2>¿Necesitas Asesoramiento Personalizado?</h2>
+        <p>Nuestros especialistas te ayudarán a seleccionar el equipo perfecto según tus necesidades y presupuesto. Agenda una demostración gratuita en tu clínica.</p>
+        <div class="cta-buttons">
+            <a href="../index.html#contacto" class="btn-details" style="padding: 1.2rem 3rem;">Agendar Demo</a>
+            <a href="tel:+34900123456" class="btn-quote" style="padding: 1.2rem 3rem;">Llámanos: 900 123 456</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>UP3D Technology</h4>
+                    <p>Liderando la revolución digital en odontología con tecnología de vanguardia, innovación constante y soporte excepcional para profesionales dentales.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">📘</a>
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="Twitter">🐦</a>
+                        <a href="#" title="LinkedIn">💼</a>
+                        <a href="#" title="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Productos</h4>
+                    <ul>
+                        <li><a href="#sobremesa">Escáneres de Sobremesa</a></li>
+                        <li><a href="#intraoral">Escáneres Intraorales</a></li>
+                        <li><a href="#industrial">Escáneres Industriales</a></li>
+                        <li><a href="#fresadoras">Fresadoras CAD/CAM</a></li>
+                        <li><a href="#software">Software CAD</a></li>
+                        <li><a href="#accesorios">Accesorios</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">Fichas Técnicas</a></li>
+                        <li><a href="#">Manuales de Usuario</a></li>
+                        <li><a href="#">Video Tutoriales</a></li>
+                        <li><a href="#">Casos de Éxito</a></li>
+                        <li><a href="#">Blog Técnico</a></li>
+                        <li><a href="#">Webinars Gratuitos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="tel:+34900123456">📞 900 123 456</a></li>
+                        <li><a href="mailto:info@up3d.com">✉️ info@up3d.com</a></li>
+                        <li><a href="../index.html#contacto">📅 Agendar Demo</a></li>
+                        <li><a href="../index.html#contacto">💬 Soporte 24/7</a></li>
+                        <li><a href="#">📍 Oficinas Centrales</a></li>
+                        <li><a href="#">👥 Distribuidores</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 UP3D Technology. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos de Servicio</a>
+                    <a href="#">Cookies</a>
+                    <a href="../index.html">← Volver al Inicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Details Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Escáner UP560</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent">
+                    <!-- Content will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Filter products by category
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                productCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.6s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('productModal');
+        const closeModal = document.querySelector('.close-modal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+        const detailButtons = document.querySelectorAll('.btn-details');
+
+        // Product details data
+        const productDetails = {
+            'up400': {
+                title: 'Escáner UP400',
+                description: 'El escáner UP400 es la solución perfecta para clínicas y laboratorios dentales que buscan dar el primer paso hacia la digitalización. Diseñado con tecnología de vanguardia en un formato compacto y accesible.',
+                features: [
+                    'Precisión de 15μm garantizada',
+                    'Tiempo de escaneo: 45 segundos',
+                    'Área de escaneo: 60 x 60mm',
+                    'Compatibilidad con todos los software CAD principales',
+                    'Calibración automática',
+                    'Interfaz táctil intuitiva',
+                    'Conexión USB 3.0',
+                    'Software básico incluido'
+                ],
+                specifications: {
+                    'Peso': '4.5 kg',
+                    'Dimensiones': '25 x 25 x 35 cm',
+                    'Fuente de luz': 'LED blanca estructurada',
+                    'Resolución': '1920 x 1080 píxeles',
+                    'Formato de salida': 'STL, PLY, OBJ',
+                    'Sistema operativo': 'Windows 10/11, macOS',
+                    'Garantía': '1 año'
+                }
+            },
+            'up560': {
+                title: 'Escáner UP560',
+                description: 'El modelo más popular de nuestra línea, el UP560 combina velocidad excepcional con precisión superior. Ideal para laboratorios con volumen medio-alto que buscan maximizar su productividad.',
+                features: [
+                    'Precisión de 10μm certificada',
+                    'Velocidad de escaneo: 30 segundos',
+                    'Área ampliada de 80 x 80mm',
+                    'Software avanzado UP3D CAD incluido',
+                    'Calibración automática inteligente',
+                    'Sistema de enfriamiento activo',
+                    'Conexión Gigabit Ethernet',
+                    'Soporte para múltiples modelos simultáneos'
+                ],
+                specifications: {
+                    'Peso': '6.2 kg',
+                    'Dimensiones': '30 x 30 x 40 cm',
+                    'Fuente de luz': 'LED azul estructurada',
+                    'Resolución': '2560 x 1440 píxeles',
+                    'Formato de salida': 'STL, PLY, OBJ, 3MF',
+                    'Sistema operativo': 'Windows 10/11, macOS, Linux',
+                    'Garantía': '2 años'
+                }
+            }
+        };
+
+        // Open modal with product details
+        detailButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const productId = button.getAttribute('data-product');
+                const product = productDetails[productId];
+                
+                if (product) {
+                    modalTitle.textContent = product.title;
+                    
+                    let html = `
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 2rem;">
+                            <div>
+                                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Descripción</h3>
+                                <p style="margin-bottom: 2rem; line-height: 1.8;">${product.description}</p>
+                                
+                                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Características Principales</h3>
+                                <ul style="list-style: none; margin-bottom: 2rem;">
+                    `;
+                    
+                    product.features.forEach(feature => {
+                        html += `<li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.8rem;">
+                                    <span style="color: var(--accent-secondary); font-weight: bold;">✓</span>
+                                    ${feature}
+                                </li>`;
+                    });
+                    
+                    html += `
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Especificaciones Técnicas</h3>
+                                <div style="background: var(--light-bg); padding: 1.5rem; border-radius: 12px;">
+                    `;
+                    
+                    for (const [key, value] of Object.entries(product.specifications)) {
+                        html += `<div style="display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid var(--soft-gray);">
+                                    <span style="font-weight: 600;">${key}</span>
+                                    <span>${value}</span>
+                                </div>`;
+                    }
+                    
+                    html += `
+                                </div>
+                                
+                                <div style="margin-top: 2rem; padding: 1.5rem; background: var(--gradient-1); border-radius: 12px; color: white;">
+                                    <h4 style="margin-bottom: 1rem;">¿Interesado en este producto?</h4>
+                                    <p style="margin-bottom: 1rem;">Agenda una demostración gratuita o solicita una cotización personalizada.</p>
+                                    <div style="display: flex; gap: 1rem;">
+                                        <a href="../index.html#contacto" style="flex: 1; background: white; color: var(--primary-color); padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; text-align: center; font-weight: 600;">Solicitar Cotización</a>
+                                        <a href="../index.html#contacto" style="flex: 1; background: transparent; border: 2px solid white; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; text-align: center; font-weight: 600;">Agendar Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    modalContent.innerHTML = html;
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
